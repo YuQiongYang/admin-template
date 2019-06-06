@@ -3,9 +3,28 @@
     <header class="yin-header">
       <div class="header-container justify-center">
         <h1>XX平台</h1>
-        <ul class="operate">
-          <li>111</li>
-        </ul>
+        <div class="operate">
+          <ul>
+            <li>
+              <svg-icon icon-class="operate" />
+              <span>操作手册</span>
+            </li>
+            <li>
+              <svg-icon icon-class="setting" />
+              <span>设置</span>
+            </li>
+            <li>
+              <svg-icon icon-class="user" />
+              <span>admin</span>
+            </li>
+          </ul>
+          <ul class="div">
+            <li @click="logout">
+              <svg-icon icon-class="return" />
+              <span>退出</span>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
@@ -53,6 +72,10 @@ export default {
   methods: {
     handleClickOutside() {
       this.$store.dispatch('app/closeSideBar', { withoutAnimation: false })
+    },
+    async logout() {
+      await this.$store.dispatch('user/logout')
+      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }
 }
@@ -86,6 +109,29 @@ export default {
         margin: 0 auto;
         h1{
           font-size: 24px;
+        }
+        .operate{
+          display: flex;
+          ul{
+            display: flex;
+            li{
+              cursor: pointer;
+              margin-right: 18px;
+              svg{
+                margin-right: 3px;
+              }
+            }
+          }
+          ul:nth-of-type(1)::after{
+            content: '';
+            border-right: 1px solid #ccc;
+          }
+          ul:nth-of-type(2){
+            margin-left: 18px;
+            li{
+              margin-right: 0;
+            }
+          }
         }
       }
     }
