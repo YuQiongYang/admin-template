@@ -1,0 +1,87 @@
+@import './variables.scss';
+@import './mixin.scss';
+@import './transition.scss';
+@import './element-ui.scss';
+@import './sidebar.scss';
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: calc(100vh - 60px);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+  background: #586f82;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+ul, li{
+  list-style: none;
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+.scroll-y{
+  overflow-x: hidden;
+  padding: 10px;
+  background: #fff;
+  margin-top: 10px;
+}
+.justify-center{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.yin-header{
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
